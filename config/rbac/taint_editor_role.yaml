@@ -1,0 +1,24 @@
+# permissions for end users to edit taints.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: taint-editor-role
+rules:
+- apiGroups:
+  - k8s.yozel.co
+  resources:
+  - taints
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - k8s.yozel.co
+  resources:
+  - taints/status
+  verbs:
+  - get

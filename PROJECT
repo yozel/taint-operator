@@ -1,0 +1,17 @@
+domain: yozel.co
+layout: go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: taint-operator
+repo: github.com/yozel/taint-operator
+resources:
+- api:
+    crdVersion: v1
+  controller: true
+  domain: yozel.co
+  group: k8s
+  kind: Taint
+  path: github.com/yozel/taint-operator/api/v1alpha1
+  version: v1alpha1
+version: "3"

@@ -1,0 +1,7 @@
+apiVersion: k8s.yozel.co/v1alpha1
+kind: Taint
+metadata:
+  name: taint-sample
+spec:
+  # Add fields here
+  foo: bar
