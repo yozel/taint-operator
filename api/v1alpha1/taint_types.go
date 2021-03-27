@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -28,8 +29,11 @@ type TaintSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Taint. Edit taint_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// NodeSelector is a label selector to point Node you want to add taints
+	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+
+	// Taints are node taints you want to add to Nodes matched with NodeSelector
+	Taints []corev1.Taint `json:"taints,omitempty"`
 }
 
 // TaintStatus defines the observed state of Taint
