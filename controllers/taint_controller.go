@@ -27,6 +27,8 @@ import (
 	k8sv1alpha1 "github.com/yozel/taint-operator/api/v1alpha1"
 )
 
+const taintFinalizer = "taint.k8s.yozel.co/finalizer"
+
 // TaintReconciler reconciles a Taint object
 type TaintReconciler struct {
 	client.Client
@@ -48,11 +50,7 @@ type TaintReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.7.2/pkg/reconcile
 func (r *TaintReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = r.Log.WithValues("taint", req.NamespacedName)
-
-	// your logic here
-
-	return ctrl.Result{}, nil
+	return reconcile(ctx, r, r.Log, req)
 }
 
 // SetupWithManager sets up the controller with the Manager.

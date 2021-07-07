@@ -33,6 +33,7 @@ type TaintSpec struct {
 	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
 
 	// Taints are node taints you want to add to Nodes matched with NodeSelector
+	// +kubebuilder:validation:MinItems=1
 	Taints []corev1.Taint `json:"taints,omitempty"`
 }
 

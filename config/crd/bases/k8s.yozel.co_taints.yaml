@@ -69,6 +69,7 @@ spec:
                   - effect
                   - key
                   type: object
+                minItems: 1
                 type: array
             type: object
           status:
